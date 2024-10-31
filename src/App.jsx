@@ -8,9 +8,15 @@ const App = () => {
   // we'll use the form to update this state by the end of this lesson
   const [title, setTitle] = useState('The full name will appear here.');
   const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value)
-    
+
+  }
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value)
   }
   return (
     <>
@@ -23,7 +29,15 @@ const App = () => {
           value={firstName}
           onChange={handleFirstNameChange}
           />
+        <label htmlFor="lastName">Last Name: </label>
+        <input 
+          id="lastName" 
+          name="lastName" 
+          value={lastName}
+          onChange={handleLastNameChange}
+          />
       </form>
+
     </>
   );
 };
