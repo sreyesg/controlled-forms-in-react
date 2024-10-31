@@ -7,17 +7,17 @@ const App = () => {
   // add placeholder text for the title
   // we'll use the form to update this state by the end of this lesson
   const [title, setTitle] = useState('The full name will appear here.');
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: ''
+  })
   
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value)
-
-  }
-
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value)
-  }
+  const handleChange = (event) => {
+    setFormData({...formData, [event.target.name]:event.target.value});
+    console.log(event.target.name)
+    console.log(event.target.value)
+  };
+  
   return (
     <>
       <h2>{title}</h2>
@@ -26,15 +26,15 @@ const App = () => {
         <input 
           id="firstName" 
           name="firstName" 
-          value={firstName}
-          onChange={handleFirstNameChange}
+          value={formData.firstName}
+          onChange={handleChange}
           />
         <label htmlFor="lastName">Last Name: </label>
         <input 
           id="lastName" 
           name="lastName" 
-          value={lastName}
-          onChange={handleLastNameChange}
+          value={formData.lastName}
+          onChange={handleChange}
           />
       </form>
 
