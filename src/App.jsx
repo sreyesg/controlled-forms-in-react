@@ -18,10 +18,18 @@ const App = () => {
     console.log(event.target.value)
   };
   
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setTitle(`your name is ${formData.firstName} ${formData.lastName}`)
+    setFormData({firstName: '', lastName: ''})
+
+  }
+
+
   return (
     <>
       <h2>{title}</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name: </label>
         <input 
           id="firstName" 
@@ -36,6 +44,7 @@ const App = () => {
           value={formData.lastName}
           onChange={handleChange}
           />
+          <button type="submit">Submit</button>
       </form>
 
     </>
