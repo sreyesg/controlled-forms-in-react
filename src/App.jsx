@@ -14,8 +14,7 @@ const App = () => {
   
   const handleChange = (event) => {
     setFormData({...formData, [event.target.name]:event.target.value});
-    console.log(event.target.name)
-    console.log(event.target.value)
+    
   };
   
   const handleSubmit = (event) => {
