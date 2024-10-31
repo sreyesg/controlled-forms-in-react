@@ -1,26 +1,20 @@
 // src/App.jsx
 
-import './App.css'
+// import the useState() hook
 import { useState } from 'react';
 
 const App = () => {
+  // add placeholder text for the title
+  // we'll use the form to update this state by the end of this lesson
+  const [title, setTitle] = useState('The full name will appear here.');
 
-  const [cityInput, setCityInput] = useState('')
-
-  const handleChange =(event) => {
-    setCityInput(event.target.value)
-  }
   return (
     <>
-      <h1>Enter the City</h1>
-      <label htmlFor="cityInput">City: </label>
-      <input 
-        type="text" 
-        name="cityInput" 
-        id="cityInput"
-        value={cityInput}
-        onChange={handleChange}
-      />
+      <h2>{title}</h2>
+      <form>
+        <label htmlFor="firstName">First Name: </label>
+        <input id="firstName" name="firstName" />
+      </form>
     </>
   );
 };
